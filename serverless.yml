@@ -12,7 +12,7 @@
 #
 # Happy Coding!
 
-service: crix11s-service 
+service: myService 
 # app and org for use with dashboard.serverless.com
 app: crix11s-app
 org: crix11s
