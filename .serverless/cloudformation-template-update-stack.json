@@ -74,7 +74,7 @@
     "HelloLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/crix11s-service-dev-hello"
+        "LogGroupName": "/aws/lambda/myService-dev-hello"
       }
     },
     "IamRoleLambdaExecution": {
@@ -102,7 +102,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "crix11s-service",
+                  "myService",
                   "dev",
                   "lambda"
                 ]
@@ -119,7 +119,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/crix11s-service-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/myService-dev*:*"
                     }
                   ]
                 },
@@ -130,7 +130,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/crix11s-service-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/myService-dev*:*:*"
                     }
                   ]
                 }
@@ -143,7 +143,7 @@
           "Fn::Join": [
             "-",
             [
-              "crix11s-service",
+              "myService",
               "dev",
               {
                 "Ref": "AWS::Region"
@@ -207,11 +207,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/crix11s-service/dev/1621186614469-2021-05-16T17:36:54.469Z/crix11s-service.zip"
+          "S3Key": "serverless/myService/dev/1621187989929-2021-05-16T17:59:49.929Z/myService.zip"
         },
         "Handler": "s_hello.handler",
         "Runtime": "python3.8",
-        "FunctionName": "crix11s-service-dev-hello",
+        "FunctionName": "myService-dev-hello",
         "MemorySize": 1024,
         "Timeout": 6,
         "Role": {
@@ -225,20 +225,20 @@
         "HelloLogGroup"
       ]
     },
-    "HelloLambdaVersioncSDz8HOxUE37nne4nv5nEAmfU9bnM7yESeIzofzpI": {
+    "HelloLambdaVersion1VB8rqWCICQImTikBnI1mQHi1F1Tdgkyw1IKM2El2us": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HelloLambdaFunction"
         },
-        "CodeSha256": "3PgZAIXUVZoeePFsuHKbT/7CPazFVDDVBuu+BGd04BY="
+        "CodeSha256": "0QAp4Nz2an9/6I/Ov9D3e3yNVOXtCOZtpiG7gF/Ot7w="
       }
     },
     "CloudWatchLogsSubscriptionFilterHelloLogGroup": {
       "Type": "AWS::Logs::SubscriptionFilter",
       "Properties": {
-        "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:944bf4ec-8d31-44e7-ad51-e221b321b097#zsygBDJbh0FyYghZ08#crix11s-service#dev",
+        "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:944bf4ec-8d31-44e7-ad51-e221b321b097#zsygBDJbh0FyYghZ08#myService#dev",
         "FilterPattern": "?\"REPORT RequestId: \" ?\"SERVERLESS_ENTERPRISE\"",
         "LogGroupName": {
           "Ref": "HelloLogGroup"
@@ -252,7 +252,7 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-crix11s-service-dev-ServerlessDeploymentBucketName"
+        "Name": "sls-myService-dev-ServerlessDeploymentBucketName"
       }
     },
     "EnterpriseLogAccessIamRole": {
@@ -263,16 +263,16 @@
         ]
       },
       "Export": {
-        "Name": "sls-crix11s-service-dev-EnterpriseLogAccessIamRole"
+        "Name": "sls-myService-dev-EnterpriseLogAccessIamRole"
       }
     },
     "HelloLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HelloLambdaVersioncSDz8HOxUE37nne4nv5nEAmfU9bnM7yESeIzofzpI"
+        "Ref": "HelloLambdaVersion1VB8rqWCICQImTikBnI1mQHi1F1Tdgkyw1IKM2El2us"
       },
       "Export": {
-        "Name": "sls-crix11s-service-dev-HelloLambdaFunctionQualifiedArn"
+        "Name": "sls-myService-dev-HelloLambdaFunctionQualifiedArn"
       }
     }
   }
